@@ -2,14 +2,21 @@ const { chromium } = require("playwright");
 const fs = require("fs");
 const path = require("path");
 
-const SHARE_URLS = process.argv.slice(2);
+const args = process.argv.slice(2);
+const MERGE_MODE = args.includes("--merge");
+const SHARE_URLS = args.filter((a) => !a.startsWith("--"));
 const OUTPUT_DIR = path.join(__dirname, "output");
 const MAX_RETRIES = 3;
 
 if (SHARE_URLS.length === 0) {
-  console.error("Usage: node export.js <airtable-share-url> [url2] [url3] ...");
+  console.error(
+    "Usage: node export.js [--merge] <airtable-share-url> [url2] [url3] ...",
+  );
   console.error(
     "Example: node export.js https://airtable.com/appXXX/shrXXX/tblXXX",
+  );
+  console.error(
+    "  --merge  Append new records to existing output file (by _id)",
   );
   process.exit(1);
 }
@@ -161,24 +168,67 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
       .replace(/[^a-zA-Z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "")
       .toLowerCase();
-    const outputName = `${baseName}-${records.length}-rows`;
+
+    let finalRecords = records;
+    let newCount = records.length;
+
+    if (MERGE_MODE) {
+      // Find existing file matching this table (by sourceUrl in _meta)
+      const existingFiles = fs
+        .readdirSync(OUTPUT_DIR)
+        .filter((f) => f.endsWith(".json"));
+
+      let existingPath = null;
+      let existingData = null;
+      for (const file of existingFiles) {
+        const filePath = path.join(OUTPUT_DIR, file);
+        const content = JSON.parse(fs.readFileSync(filePath, "utf8"));
+        if (content._meta && content._meta.sourceUrl === shareUrl) {
+          existingPath = filePath;
+          existingData = content;
+          break;
+        }
+      }
+
+      if (existingData) {
+        const existingIds = new Set(existingData.records.map((r) => r._id));
+        const newRecords = records.filter((r) => !existingIds.has(r._id));
+        finalRecords = [...existingData.records, ...newRecords];
+        newCount = newRecords.length;
+        console.log(
+          `Merge: ${existingData.records.length} existing + ${newCount} new = ${finalRecords.length} total`,
+        );
+        if (existingPath) {
+          fs.unlinkSync(existingPath);
+        }
+      } else {
+        console.log("No existing file found, creating new output");
+      }
+    }
+
+    const outputName = `${baseName}-${finalRecords.length}-rows`;
 
     // Save JSON with metadata
     const outputPath = {
       _meta: {
         sourceUrl: shareUrl,
         exportedAt: new Date().toISOString().split("T")[0],
-        rowCount: records.length,
-        columnCount: Object.keys(records[0]).length,
+        rowCount: finalRecords.length,
+        columnCount: Object.keys(finalRecords[0]).length,
       },
-      records: records,
+      records: finalRecords,
     };
     const jsonPath = path.join(OUTPUT_DIR, `${outputName}.json`);
     fs.writeFileSync(jsonPath, JSON.stringify(outputPath, null, 2));
     console.log(`JSON saved to: ${jsonPath}`);
 
     await context.close();
-    return { success: true, url: shareUrl, count: records.length };
+    return {
+      success: true,
+      url: shareUrl,
+      count: finalRecords.length,
+      newCount,
+    };
   } catch (err) {
     await context.close();
     if (attempt < MAX_RETRIES) {
@@ -208,7 +258,8 @@ async function main() {
   console.log("=== Summary ===");
   for (const r of results) {
     if (r.success) {
-      console.log(`  OK   ${r.url} -> ${r.count} records`);
+      const newInfo = r.newCount !== undefined ? ` (${r.newCount} new)` : "";
+      console.log(`  OK   ${r.url} -> ${r.count} records${newInfo}`);
     } else {
       console.log(`  FAIL ${r.url} -> ${r.error}`);
     }
