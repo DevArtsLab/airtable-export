@@ -5,15 +5,20 @@ const path = require("path");
 const args = process.argv.slice(2);
 const MERGE_MODE = args.includes("--merge");
 const OUTPUT_FLAG_IDX = args.indexOf("--output");
-const OUTPUT_DIR = OUTPUT_FLAG_IDX !== -1 && args[OUTPUT_FLAG_IDX + 1] ? path.resolve(args[OUTPUT_FLAG_IDX + 1]) : path.join(__dirname, "output");
+const OUTPUT_DIR = OUTPUT_FLAG_IDX !== -1 && args[OUTPUT_FLAG_IDX + 1] ? path.resolve(args[OUTPUT_FLAG_IDX + 1]) : path.join(__dirname, "objects");
 const SHARE_URLS = args.filter((a) => !a.startsWith("--") && a !== (OUTPUT_FLAG_IDX !== -1 ? args[OUTPUT_FLAG_IDX + 1] : ""));
 const MAX_RETRIES = 3;
+const ORGS_CONFIG_PATH = path.join(__dirname, "orgs.json");
+let ORGS_CONFIG = {};
+if (fs.existsSync(ORGS_CONFIG_PATH)) {
+  ORGS_CONFIG = JSON.parse(fs.readFileSync(ORGS_CONFIG_PATH, "utf8"));
+}
 
 if (SHARE_URLS.length === 0) {
   console.error("Usage: node export.js [--merge] [--output <dir>] <url1> [url2] ...");
   console.error("Example: node export.js https://airtable.com/appXXX/shrXXX/tblXXX");
   console.error("  --merge   Append new records to existing output file (by _id)");
-  console.error("  --output  Specify output directory (default: ./output)");
+  console.error("  --output  Specify output directory (default: ./objects)");
   process.exit(1);
 }
 
@@ -149,15 +154,18 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
     console.log(`Parsed ${totalRows} rows...`);
     console.log(`Extracted ${records.length} records with ${Object.keys(records[0]).length} columns`);
 
-    // Derive output filename from page title
+    // Derive output filename from page title + org config
+    // Format: "Airtable - <BaseName> - <TableName>" -> "<org-abbr>-<base-name>-<table-name>"
+    // Org abbreviation comes from orgs.json (mapped by applicationId)
     const pageTitle = await page.title();
-    const baseName =
-      "ctd-" +
-      pageTitle
-        .replace(/^Airtable - /, "")
-        .replace(/[^a-zA-Z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "")
-        .toLowerCase();
+    const titleSlug = pageTitle
+      .replace(/^Airtable - /, "")
+      .replace(/[^a-zA-Z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "")
+      .toLowerCase();
+    const orgInfo = ORGS_CONFIG[appId];
+    const orgAbbr = orgInfo ? orgInfo.org_abbreviation.toLowerCase() : "org";
+    const baseName = `${orgAbbr}-${titleSlug}`;
 
     let finalRecords = records;
     let newCount = records.length;

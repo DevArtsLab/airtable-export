@@ -188,11 +188,17 @@ Write the output to a file with a `_meta` block for provenance tracking. The fil
 
 ```javascript
 const pageTitle = await page.title();
-const baseName = pageTitle
+const titleSlug = pageTitle
   .replace(/^Airtable - /, "")
   .replace(/[^a-zA-Z0-9]+/g, "-")
   .replace(/^-+|-+$/g, "")
   .toLowerCase();
+
+// orgs.json maps Airtable app IDs to org info
+// { "appXXX": { "org_name": "Code The Dream", "org_abbreviation": "CTD" } }
+const orgInfo = ORGS_CONFIG[appId];
+const orgAbbr = orgInfo ? orgInfo.org_abbreviation.toLowerCase() : "org";
+const baseName = `${orgAbbr}-${titleSlug}`;
 
 const today = new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate()).padStart(2, "0");
 
@@ -207,7 +213,7 @@ const output = {
   records: records
 };
 
-fs.writeFileSync(`output/${baseName}.json`, JSON.stringify(output, null, 2));
+fs.writeFileSync(`objects/${baseName}.json`, JSON.stringify(output, null, 2));
 ```
 
 ## Why This Method Works

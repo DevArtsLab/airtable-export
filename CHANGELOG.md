@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.0] - 2026-09-01
+
+- Renamed default output directory from `output/` to `objects/`
+- Output filenames now use full page title slugged with dashes, prefixed by org abbreviation from `orgs.json` config (e.g., `ctd-employer-partners-apprentice-facing.json`)
+- Added `orgs.json` to map Airtable app IDs to org name and abbreviation
+- `objects/` folder is now tracked in git (no longer gitignored)
+- Updated `README.md`, `skill.md`, and `ARCHITECTURE.md` to reflect new directory and filenames
+
 ## [1.4.0] - 2026-09-01
 
 - Added `ARCHITECTURE.md` with orchestrator-based pipeline design

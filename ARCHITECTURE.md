@@ -97,10 +97,13 @@ Airtable
 ┌──────────────┐      ┌────────────────┐      ┌──────────────┐
 │ config       │─────▶│ airtable-export│─────▶│ data/        │
 │              │      │                │      │              │
-│ urls.json    │      │ export.js      │      │ employer-    │
-│ schedule.json│      │ --output ./data│      │ partners.json│
-│              │      │ --merge        │      │ job-         │
-│              │      │                │      │ listings.json│
+│ urls.json    │      │ export.js      │      │ ctd-employer-│
+│ schedule.json│      │ --output ./data│      │ partners-    │
+│              │      │ --merge        │      │ apprentice-  │
+│              │      │                │      │ facing.json  │
+│              │      │                │      │ ctd-job-     │
+│              │      │                │      │ listings-    │
+│              │      │                │      │ public.json  │
 └──────────────┘      └────────────────┘      └──────┬───────┘
                                                       │
                     ┌─────────────────────────────────┼────┐
@@ -128,8 +131,8 @@ orchestrator/
 │   ├── export-and-match.json
 │   └── full-pipeline.json
 ├── data/                          # shared data between nodes
-│   ├── employer-partners.json
-│   └── job-listings.json
+│   ├── ctd-employer-partners-apprentice-facing.json
+│   └── ctd-job-listings-public.json
 ├── output/                        # results from consumer nodes
 │   ├── matches/
 │   ├── recommendations/
@@ -174,14 +177,14 @@ tailored-resumes  recommendations
 
 ## Each Repo Is a Node
 
-| Node            | Input                     | Output                   |
-| --------------- | ------------------------- | ------------------------ |
-| config          | manual edits              | urls.json, schedule.json |
-| airtable-export | share URLs                | data/\*.json             |
-| career-agent    | data/\*.json + user query | recommendations.json     |
-| job-matcher     | data/\*.json + skills     | matches.json             |
-| resume-tailor   | data/\*.json + resume     | tailored-resumes/\*.json |
-| notification    | output/\*.json            | Slack messages, emails   |
+| Node            | Input                     | Output                         |
+| --------------- | ------------------------- | ------------------------------ |
+| config          | manual edits              | urls.json, schedule.json       |
+| airtable-export | share URLs                | objects/\*.json (org-prefixed) |
+| career-agent    | data/\*.json + user query | recommendations.json           |
+| job-matcher     | data/\*.json + skills     | matches.json                   |
+| resume-tailor   | data/\*.json + resume     | tailored-resumes/\*.json       |
+| notification    | output/\*.json            | Slack messages, emails         |
 
 ---
 
@@ -208,13 +211,13 @@ npm run pipeline
 ## Merge Mode for Ongoing Sync
 
 ```
-First run        data/job-listings.json  (520 records)
-                 ──────────────────────────────────────
+First run        data/ctd-job-listings-public.json  (520 records)
+                 ──────────────────────────────────────────────
 Airtable update  +3 new rows added
 
 Second run       Merge detects 3 new _ids
-                 data/job-listings.json  (523 records, 3 new)
-                 ──────────────────────────────────────
+                 data/ctd-job-listings-public.json  (523 records, 3 new)
+                 ──────────────────────────────────────────────
 Airtable update  2 rows removed, 1 added
 
 Third run        Full refresh (no --merge) to catch deletions

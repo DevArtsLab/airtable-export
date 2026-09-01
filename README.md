@@ -13,7 +13,7 @@ The script uses Playwright to load the Airtable share page in a headless browser
 node export.js "https://airtable.com/appXXX/shrXXX/tblXXX"
 ```
 
-Output is saved to `output/<table-name>.json`.
+Output is saved to `objects/<org-abbr>-<full-title>.json`.
 
 ## Usage
 
@@ -22,7 +22,7 @@ node export.js [--merge] [--output <dir>] <url1> [url2] ...
 ```
 
 - `--merge` - Append only new records to existing output (by `_id`)
-- `--output <dir>` - Write JSON to a custom directory (default: `./output`)
+- `--output <dir>` - Write JSON to a custom directory (default: `./objects`)
 
 See `CHANGELOG.md` for the full list of features and recent updates.
 
@@ -53,13 +53,15 @@ node airtable-export/export.js --output ./data "https://airtable.com/appXXX/shrX
 
 ## Output
 
-Files are written to the `output/` directory (gitignored):
+Files are written to the `objects/` directory (gitignored):
 
 ```
-output/
-  employer-partners.json
-  job-listings.json
+objects/
+  ctd-employer-partners-apprentice-facing.json
+  ctd-job-listings-public.json
 ```
+
+Filenames are derived from the Airtable page title (all segments slugged with dashes) prefixed by the org abbreviation from `orgs.json`. The config maps Airtable app IDs to org info. Example: page title `"Airtable - Employer Partners - Apprentice Facing"` with org `CTD` produces `ctd-employer-partners-apprentice-facing.json`.
 
 Each JSON file contains a `_meta` block with provenance info, followed by a `records` array:
 
@@ -93,7 +95,8 @@ Each JSON file contains a `_meta` block with provenance info, followed by a `rec
 | `skill.md`        | Detailed playbook for agents on how the method works |
 | `CHANGELOG.md`    | Version history and feature updates                  |
 | `package.json`    | Dependency declaration (Playwright)                  |
-| `output/`         | Exported JSON files (gitignored)                     |
+| `orgs.json`       | Maps Airtable app IDs to org name/abbreviation       |
+| `objects/`        | Exported JSON files (gitignored)                     |
 
 ## Requirements
 
