@@ -85,13 +85,15 @@ Each JSON file contains a `_meta` block with provenance info, followed by a `rec
 
 ## Files
 
-| File           | Purpose                                              |
-| -------------- | ---------------------------------------------------- |
-| `export.js`    | Main script - accepts share URLs as CLI args         |
-| `skill.md`     | Detailed playbook for agents on how the method works |
-| `CHANGELOG.md` | Version history and feature updates                  |
-| `package.json` | Dependency declaration (Playwright)                  |
-| `output/`      | Exported JSON files (gitignored)                     |
+| File              | Purpose                                              |
+| ----------------- | ---------------------------------------------------- |
+| `export.js`       | Main script - accepts share URLs as CLI args         |
+| `setup.sh`        | One-command install (npm + playwright)               |
+| `ARCHITECTURE.md` | Pipeline design for orchestrator-based usage         |
+| `skill.md`        | Detailed playbook for agents on how the method works |
+| `CHANGELOG.md`    | Version history and feature updates                  |
+| `package.json`    | Dependency declaration (Playwright)                  |
+| `output/`         | Exported JSON files (gitignored)                     |
 
 ## Requirements
 
