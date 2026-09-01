@@ -1,0 +1,268 @@
+{
+  "_meta": {
+    "sourceUrl": "https://airtable.com/appGeQemouVNAWX5W/shr7WKb521dLfZTWO/tblZczCm470MGzRIK",
+    "pageTitle": "Airtable - Employer Partners - Apprentice Facing",
+    "exportedAt": "2026-09-01",
+    "rowCount": 25,
+    "columnCount": 9
+  },
+  "records": [
+    {
+      "_id": "recrqWTRPZpf9wXvh",
+      "_createdTime": "2025-07-10T13:31:21.000Z",
+      "Company": "Advarra (a Blackstone Portfolio Company)",
+      "Job Board page": "https://www.advarra.com/careers/ ",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Columbia, MD\nOpportunities are nationwide/remote\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Healthcare"]
+    },
+    {
+      "_id": "recDh3c2xQOWE8Oai",
+      "_createdTime": "2025-07-10T01:08:51.000Z",
+      "Company": "Alight Solutions (a Blackstone Portfolio Company)",
+      "Job Board page": "https://careers.alight.com/us/en",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Lincolnshire, IL\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\n3-4 sentences regarding why you'd be a good fit for the company/role\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Other"]
+    },
+    {
+      "_id": "rec0irjtRhC56Y4yU",
+      "_createdTime": "2024-10-29T22:06:39.000Z",
+      "Company": "Ancestry.com (a Blackstone Portfolio Company)",
+      "Job Board page": "https://careers.ancestry.com/homepage",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Lehi, UT\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Technology"]
+    },
+    {
+      "_id": "recCuEIsZ5LVuSV8N",
+      "_createdTime": "2025-02-18T15:50:18.000Z",
+      "Company": "Apex Systems",
+      "Job Board page": "https://www.apexsystems.com/search-results-usa",
+      "Job Opportunity Types": ["Contract", "Full-Time"],
+      "Headquarter Location": "Glen Allen, VA\nOpportunities are US/nationwide\n",
+      "Special Application/Referral Instructions": "Interested candidates should fill out the STEM Candidate Form to be connected with job opportunities by way of a recruiter: https://stemcandidateapply.apexsystems.com/.\nAfter completing the form, send Rosalyn a note. This is NOT a referral process, however, this could potentially help to increase visibility of your application and candidacy.\n\nTop recommendations when applying for jobs at Apex Systems:\nReview and apply for Apex jobs at https://www.apexsystems.com/search-results-usa (we recommend applying when you have at least 80% of the requirements, and an interest in learning and doing the rest)\nAfter you apply, Apex has an AI/Virtual Recruiter (Riley) who will reach out to you for a pre-screening. Get advice for engaging with AI recruitment technology in this article - https://www.apexsystems.com/insights/article/introducing-virtual-recruiter-riley (be sure to check out the FAQ guide at the bottom)\nIn addition to applying, take one additional outreach attempt. Get tips in this article! You can learn how via this ‘Finding a Recruiter’ demo video - https://www.youtube.com/watch?v=K4Qen-BqhxM\nOnce you have a Recruiting POC at Apex, for any Apex jobs you see posted via Indeed, LinkedIn, website, etc. that you’re 80%+ qualified for and interested in pursuing, first apply online (ideally customizing your resume) and then send the 1.) link and/or 2.) ID # to your Recruiting POC\nGet more tips for an effective job search in this 1-hour on-demand training - 10 Key Job Seeker Activities - https://www.apexsystems.com/event/career-readiness/10-key-job-seeker-activities-gain-candidate-advantage\n\nNO REFERRAL PROCESS\n",
+      "Industry ID": ["Technology", "Consulting"],
+      "Additional Intel": "Company information for roles are typically confidential until a certain point within the application/interview process. Opportunities could range from contracts, contract-to-hire, or direct hire.\n"
+    },
+    {
+      "_id": "recAbZCE7udcSsoa2",
+      "_createdTime": "2025-07-10T00:59:45.000Z",
+      "Company": "Ascend Learning (a Blackstone Portfolio Company)",
+      "Job Board page": "https://www.ascendlearning.com/careers",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Burlington, MA\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Technology", "Education"]
+    },
+    {
+      "_id": "rec246IlQjCUoaKIJ",
+      "_createdTime": "2025-03-28T16:16:40.000Z",
+      "Company": "Atlassian",
+      "Job Board page": "https://www.atlassian.com/company/careers",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Sydney, Australia\nOpportunities are US/nationwide, also\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nResume\nA few sentences explaining what specific skills or experiences would make you successful in this particular role - the more concrete, the better\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Industry ID": ["Technology"],
+      "Additional Intel": "Teams operate remotely\n"
+    },
+    {
+      "_id": "recltH23yKgH5kkjS",
+      "_createdTime": "2025-08-05T13:53:25.000Z",
+      "Company": "Bankrate (Formerly Red Ventures)",
+      "Job Board page": "https://www.redventures.com/careers/overview",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Fort Mill, SC\n(Very close to Charlotte NC)\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s)\nEmail address\nResume\nFrom there, she will reach out to referral POC if deemed applicable\n",
+      "Industry ID": ["Technology"]
+    },
+    {
+      "_id": "recPnalv6NSpgiAFd",
+      "_createdTime": "2025-09-04T18:02:04.000Z",
+      "Company": "Dell Technologies",
+      "Job Board page": "https://jobs.dell.com/en",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Rock Round, TX\nOpportunities are nationwide\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nEmail Address\nResume\nA few sentences on why you'd make a good fit for this role/company\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Industry ID": ["Technology"]
+    },
+    {
+      "_id": "recNghZT8K8XrayVE",
+      "_createdTime": "2024-07-03T15:28:11.000Z",
+      "Company": "Deutsche Bank",
+      "Job Board page": "https://careers.db.com/professionals/search-roles/#/professional/results/?country=231&divisionProf=10052&schedule=1",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "International\nOpportunities are US/worldwide\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nEmail address\nPhone number & address\nResume\nA few sentences answering the following question: \"What makes you a great fit for DB and the specific position you are seeking a referral for?\"\n\nFrom there, she will follow notify our point-of-contact if deemed applicable.\n",
+      "Industry ID": ["Financial Services"]
+    },
+    {
+      "_id": "recGVQoTTCrJs1DrK",
+      "_createdTime": "2025-07-31T16:49:29.000Z",
+      "Company": "DirectEmployers",
+      "Job Board page": "https://dejobs.org/",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Indianapolis, IN\nOpportunities with Partner companies are nationwide\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a note via Slack with the following:\nName of company\nJob Link(s)\nResume\n\nFrom there, she will send a note to our contact. This is NOT a referral process, however, this could potentially help to increase visibility of your application and candidacy.\n",
+      "Industry ID": ["Non-profit", "Other"]
+    },
+    {
+      "_id": "rec3a4ku2bepDiZCb",
+      "_createdTime": "2024-07-05T20:15:30.000Z",
+      "Company": "GitLab",
+      "Job Board page": "https://about.gitlab.com/jobs/all-jobs/",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "San Francisco, CA\nOpportunities are US/nationwide\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s)\nResume\nWhat makes you a good fit for the role(s)/GitLab\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Industry ID": ["Technology", "Consulting"]
+    },
+    {
+      "_id": "recxkIOUigZvQkZ98",
+      "_createdTime": "2024-06-29T19:02:53.000Z",
+      "Company": "IBM",
+      "Job Board page": "https://www.ibm.com/careers/search?field_keyword_18[0]=Entry%20Level&field_keyword_05[0]=United%20States\n\nFor US-based Apprenticeships:\nhttps://www.ibm.com/careers/search?field_keyword_05[0]=United%20States&q=apprenticeship ",
+      "Job Opportunity Types": ["Apprenticeship", "Full-Time"],
+      "Headquarter Location": "Armonk, NY\nOpportunities are nationwide\n",
+      "Special Application/Referral Instructions": "If you have not already done so, BEFORE you apply for your next role of interest at IBM, you should...\nFill out this talent identification form to join IBM's talent network\nUnder the section, \"School or University\", be sure to list Code the Dream\nAfter you complete the form, you will receive an IBM ID. Be sure to hold on to this for future use (don't lose it!)\n\nAS you apply for jobs of interest at IBM...\nThere will be a portion in the job application that will ask you \"Are you apart of the Talent Network?\"\nSelect or type, \"YES\"\nProvide your IBM ID\n\nAFTER you apply, send Rosalyn a note via Slack with the following:\nEmail address\nResume\n\nFrom there, she will reach out to the point-of-contact to let them know you've applied. They will then send your information to the role's designated recruiter.\n",
+      "Industry ID": ["Technology", "Consulting"],
+      "Additional Intel": "Interested applicants are encouraged to set up a saved job search/job alerts with IBM so you are able to get applications for jobs of interest in early. The hiring process for their jobs move rather quickly, so it is best to be an early applicant.\n"
+    },
+    {
+      "_id": "recjwIIiDt95zhO9X",
+      "_createdTime": "2025-04-02T19:18:06.000Z",
+      "Company": "IMC Trading",
+      "Job Board page": "https://www.imc.com/us/search-careers",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "International.\nOpportunities are US/nationwide. US-based roles are mostly located in Chicago, IL.\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nIf more than one, please indicate your top choice\nResume\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n\nAFTER RETREIVING REFERRAL LINK: \nOnce you have received the referral link, you may be asked the question, \"How did you hear about us?\" in the application. Be sure to select the drop-down option, \"Employee Referral\".\n",
+      "Industry ID": ["Financial Services"],
+      "Additional Intel": "Many of the software engineering roles with indicate emphasis on C++ and/or java. Be encouraged to apply for other tech roles such as web development and machine learning roles, too. \n"
+    },
+    {
+      "_id": "recOLd62IRpsaQzK3",
+      "_createdTime": "2025-07-14T22:42:11.000Z",
+      "Company": "Labcorp",
+      "Job Board page": "https://careers.labcorp.com/global/en ",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Burlington, NC\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nEmail address\nPhone number\nResume\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Industry ID": ["Healthcare"]
+    },
+    {
+      "_id": "rec0luvvwiIw5aB8w",
+      "_createdTime": "2025-09-25T21:28:11.000Z",
+      "Company": "Liberty Mutual",
+      "Job Board page": "https://www.libertymutualgroup.com/about-lm/careers/overview",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Boston, MA\nOpportunities are in additional locations within the US\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nResume\nEmail address\n3-4 sentences regarding why you'd be a good fit for the company/role\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n\nA referral link will be auto-generated and sent to you via email after the referral is submitted.\n",
+      "Industry ID": ["Financial Services"]
+    },
+    {
+      "_id": "recHtK0cD585Vq3sI",
+      "_createdTime": "2025-03-18T21:29:17.000Z",
+      "Company": "MasterCard",
+      "Job Board page": "https://careers.mastercard.com/us/en",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Purchase, NY\nOpportunities are nationwide\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s)/Job IDs\nEmail address\nResume\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Industry ID": ["Financial Services"],
+      "Additional Intel": "By signing up for Mastercard’s Talent Community, candidates can drop their resume and receive updates on specific job openings as they become available.\n"
+    },
+    {
+      "_id": "recF5bLuLxxBrPT4P",
+      "_createdTime": "2025-07-10T00:27:28.000Z",
+      "Company": "Medline (a Blackstone Portfolio Company)",
+      "Job Board page": "https://www.medline.com/about-us/careers/",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Northfield, IL\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Healthcare", "Manufacturing"]
+    },
+    {
+      "_id": "rec6X7gPsJrt0255o",
+      "_createdTime": "2024-07-05T20:14:23.000Z",
+      "Company": "MetLife",
+      "Job Board page": "https://www.metlifecareers.com/en_US/ml/Home",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "New York, NY\nOpportunities are US/nationwide\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact. This is NOT a referral process, however, this could potentially help to increase visibility of your application and candidacy.\n",
+      "Industry ID": ["Financial Services"]
+    },
+    {
+      "_id": "recEGDQA57k1pNpfD",
+      "_createdTime": "2025-07-09T22:17:44.000Z",
+      "Company": "QTS (a Blackstone Portfolio Company)",
+      "Job Board page": "https://qtsdatacenters.com/join-our-team/",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Overland Park, KS\nOpportunities are nationwide\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Real Estate"]
+    },
+    {
+      "_id": "rec1L1PfuEtyas6NT",
+      "_createdTime": "2024-06-29T18:22:47.000Z",
+      "Company": "Red Hat",
+      "Job Board page": "https://redhat.wd5.myworkdayjobs.com/jobs/",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Raleigh, NC\nOpportunities are US/nationwide\n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s)\nCTD email address\nResume\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Industry ID": ["Technology"]
+    },
+    {
+      "_id": "rec8RvmRpE5hncMhS",
+      "_createdTime": "2024-07-05T19:41:47.000Z",
+      "Company": "SAS",
+      "Job Board page": "https://globalcareers-sas.icims.com/jobs/search?ss=1&searchRelation=keyword_all&searchCategory=42642&searchLocation=12781--",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Cary, NC\nOpportunities are US/nationwide\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Daisy a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nFrom there, she will follow notify our point-of-contact.\n\n",
+      "Industry ID": ["Technology"]
+    },
+    {
+      "_id": "recCpGYnXn9ugnnpg",
+      "_createdTime": "2025-04-02T19:11:42.000Z",
+      "Company": "Shopify",
+      "Job Board page": "https://internships.shopify.com/ ",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Bellevue, WA and NYC, NY during the 4-month internship. \nThen remote if converted to full-time.\n",
+      "Special Application/Referral Instructions": "*FOR SHOPIFY'S INTERNSHIP ONLY*\n\nBEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nEmail address\nResume\nA few sentences answering the following question: \"What makes you a great fit for Shopify and the specific position you are seeking a referral for?\"\n\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Industry ID": ["Technology"],
+      "Additional Intel": "Shopify's Technical Interview Process: What to Expect and How to Prepare\n"
+    },
+    {
+      "_id": "recqcmULYxvoEa2VO",
+      "_createdTime": "2025-05-09T17:18:45.000Z",
+      "Company": "TOSHIBA Global Commerce Solutions",
+      "Job Board page": "https://careers.commerce.toshiba.com/",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Durham, NC\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nFrom there, she will follow notify our point-of-contact. This is NOT a referral process, however, this could potentially help to increase visibility of your application and candidacy.\n",
+      "Industry ID": ["Technology"]
+    },
+    {
+      "_id": "recADxgFf37EIUEoi",
+      "_createdTime": "2024-10-29T22:06:39.000Z",
+      "Company": "UKG (a Blackstone Portfolio Company)",
+      "Job Board page": "https://apply.ukg.com/careers",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Weston, FL\nOpportunities are US/nationwide\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Technology"]
+    },
+    {
+      "_id": "recSFL1fqnID2b4US",
+      "_createdTime": "2025-04-10T19:59:05.000Z",
+      "Company": "YUPRO Placement",
+      "Job Board page": "https://jobs.yupro.com/",
+      "Job Opportunity Types": ["Contract", "Full-Time"],
+      "Headquarter Location": "Opportunities are US/nationwide/remote\n",
+      "Special Application/Referral Instructions": "BEFORE applying to jobs of interest:\nComplete your candidate registration (webpage will be titled, Join Our Talent Network)\nBe certain to select \"Code the Dream\" for the question, \"Which training provider program did you complete?\"\nAfter completion of your candidate registration, you can check out/apply for open jobs of interest. \nA jobs lead report will be shared via the ctd-job-seekers Slack channel bi-weekly\n\nNO REFERRAL PROCESS\n",
+      "Industry ID": ["Non-profit", "Other"],
+      "Additional Intel": "Opportunities listed as \"Contract\" have great potential to convert to full-time/permanent.\n"
+    }
+  ]
+}

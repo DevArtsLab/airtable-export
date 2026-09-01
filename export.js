@@ -151,11 +151,13 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
 
     // Derive output filename from page title
     const pageTitle = await page.title();
-    const baseName = pageTitle
-      .replace(/^Airtable - /, "")
-      .replace(/[^a-zA-Z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "")
-      .toLowerCase();
+    const baseName =
+      "ctd-" +
+      pageTitle
+        .replace(/^Airtable - /, "")
+        .replace(/[^a-zA-Z0-9]+/g, "-")
+        .replace(/^-+|-+$/g, "")
+        .toLowerCase();
 
     let finalRecords = records;
     let newCount = records.length;
