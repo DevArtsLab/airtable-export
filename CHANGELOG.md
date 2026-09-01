@@ -3,6 +3,7 @@
 ## [1.4.0] - 2026-09-01
 
 - Added `ARCHITECTURE.md` with orchestrator-based pipeline design
+- Updated `skill.md` to match current `export.js` (dynamic interception, native types, rich text flattening, `_meta` block, YAML frontmatter)
 
 ## [1.3.0] - 2026-08-31
 
