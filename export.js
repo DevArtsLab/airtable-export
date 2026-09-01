@@ -163,9 +163,18 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
       .toLowerCase();
     const outputName = `${baseName}-${records.length}-rows`;
 
-    // Save JSON
+    // Save JSON with metadata
+    const outputPath = {
+      _meta: {
+        sourceUrl: shareUrl,
+        exportedAt: new Date().toISOString().split("T")[0],
+        rowCount: records.length,
+        columnCount: Object.keys(records[0]).length,
+      },
+      records: records,
+    };
     const jsonPath = path.join(OUTPUT_DIR, `${outputName}.json`);
-    fs.writeFileSync(jsonPath, JSON.stringify(records, null, 2));
+    fs.writeFileSync(jsonPath, JSON.stringify(outputPath, null, 2));
     console.log(`JSON saved to: ${jsonPath}`);
 
     await context.close();
