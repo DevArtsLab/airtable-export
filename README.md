@@ -14,39 +14,15 @@ npx playwright install chromium
 node export.js "https://airtable.com/appXXX/shrXXX/tblXXX"
 ```
 
-Output is saved to `output/<table-name>-<row-count>-rows.json`.
+Output is saved to `output/<table-name>.json`.
 
 ## Usage
 
-### Single table
-
 ```bash
-node export.js "https://airtable.com/appXXX/shrXXX/tblXXX"
+node export.js [--merge] <url1> [url2] [url3] ...
 ```
 
-### Multiple tables in one run
-
-```bash
-node export.js "https://airtable.com/appXXX/shrXXX/tblXXX" "https://airtable.com/appYYY/shrYYY/tblYYY"
-```
-
-Each table is exported sequentially with a summary at the end:
-
-```
-=== Summary ===
-  OK   https://airtable.com/appXXX/shrXXX/tblXXX -> 520 records
-  OK   https://airtable.com/appYYY/shrYYY/tblYYY -> 25 records
-```
-
-## Features
-
-- **No API key required** - works with any public share link
-- **All rows at once** - no pagination, no clicking through pages
-- **Retry logic** - automatically retries up to 3 times on failure
-- **Multiple URLs** - batch export several tables in one command
-- **Auto-named output** - filenames derived from the Airtable page title and row count
-- **Select field resolution** - dropdown/select field IDs are mapped to their human-readable text values
-- **Native type preservation** - numbers, booleans, arrays, and objects keep their native JSON types
+See `CHANGELOG.md` for the full list of features and recent updates.
 
 ## Output
 
@@ -54,22 +30,30 @@ Files are written to the `output/` directory (gitignored):
 
 ```
 output/
-  employer-partners-25-rows.json
-  job-listings-520-rows.json
+  employer-partners.json
+  job-listings.json
 ```
 
-Each JSON file is an array of record objects with column names as keys:
+Each JSON file contains a `_meta` block with provenance info, followed by a `records` array:
 
 ```json
-[
-  {
-    "_id": "recXXXXX",
-    "_createdTime": "2026-08-28",
-    "Company Name": "Acme Corp",
-    "Status": "Available",
-    "Tech Stack": ["Python", "React", "AWS"]
-  }
-]
+{
+  "_meta": {
+    "sourceUrl": "https://airtable.com/appXXX/shrXXX/tblXXX",
+    "exportedAt": "2026-08-31",
+    "rowCount": 520,
+    "columnCount": 15
+  },
+  "records": [
+    {
+      "_id": "recXXXXX",
+      "_createdTime": "2026-08-28",
+      "Company Name": "Acme Corp",
+      "Status": "Available",
+      "Tech Stack": ["Python", "React", "AWS"]
+    }
+  ]
+}
 ```
 
 ## Files
@@ -78,6 +62,7 @@ Each JSON file is an array of record objects with column names as keys:
 | -------------- | ---------------------------------------------------- |
 | `export.js`    | Main script - accepts share URLs as CLI args         |
 | `skill.md`     | Detailed playbook for agents on how the method works |
+| `CHANGELOG.md` | Version history and feature updates                  |
 | `package.json` | Dependency declaration (Playwright)                  |
 | `output/`      | Exported JSON files (gitignored)                     |
 

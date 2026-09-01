@@ -206,12 +206,13 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
       }
     }
 
-    const outputName = `${baseName}-${finalRecords.length}-rows`;
+    const outputName = baseName;
 
     // Save JSON with metadata
     const outputPath = {
       _meta: {
         sourceUrl: shareUrl,
+        pageTitle: pageTitle,
         exportedAt: new Date().toISOString().split("T")[0],
         rowCount: finalRecords.length,
         columnCount: Object.keys(finalRecords[0]).length,
