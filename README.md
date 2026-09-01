@@ -9,8 +9,7 @@ The script uses Playwright to load the Airtable share page in a headless browser
 ## Quick Start
 
 ```bash
-npm install
-npx playwright install chromium
+./setup.sh
 node export.js "https://airtable.com/appXXX/shrXXX/tblXXX"
 ```
 
@@ -48,6 +47,7 @@ Use this repo as a submodule in other projects to export Airtable data directly 
 
 ```bash
 git submodule add <this-repo-url> airtable-export
+cd airtable-export && ./setup.sh && cd ..
 node airtable-export/export.js --output ./data "https://airtable.com/appXXX/shrXXX/tblXXX"
 ```
 

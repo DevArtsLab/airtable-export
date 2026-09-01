@@ -8,6 +8,8 @@
 - Removed row count from output filenames (stable names across re-exports)
 - Added `.prettierrc` to prevent formatting diffs on committed output files
 - Added git submodule usage instructions to README
+- Added `setup.sh` for one-command installation
+- Fixed `exportedAt` to use local timezone instead of UTC
 
 ## [1.2.0] - 2026-08-31
 
