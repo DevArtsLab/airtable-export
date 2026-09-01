@@ -4,7 +4,9 @@
 
 - Renamed default output directory from `output/` to `objects/`
 - Output filenames now use full page title slugged with dashes, prefixed by org abbreviation from `orgs.json` config (e.g., `ctd-employer-partners-apprentice-facing.json`)
-- Added `orgs.json` to map Airtable app IDs to org name and abbreviation
+- Added `orgs.json` to map Airtable app IDs to org name, abbreviation, and excluded fields
+- Added per-source field exclusion via `exclude_fields` in `orgs.json` (e.g., drop `Attachments` column for employer partners)
+- String arrays in output JSON are collapsed to one line (e.g., `["Full-Time"]`, `["Technology", "Consulting"]`)
 - `objects/` folder is now tracked in git (no longer gitignored)
 - Updated `README.md`, `skill.md`, and `ARCHITECTURE.md` to reflect new directory and filenames
 

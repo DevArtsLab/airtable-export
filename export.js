@@ -59,9 +59,12 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
     const appIdMatch = capturedUrl.match(/applicationId%22%3A%22(app[A-Za-z0-9]+)/);
     const appId = appIdMatch ? appIdMatch[1] : "";
 
+    const orgInfo = ORGS_CONFIG[appId] || {};
+    const excludeFields = orgInfo.exclude_fields || [];
+
     console.log("Fetching data via internal API...");
     const result = await page.evaluate(
-      async ({ url, appId }) => {
+      async ({ url, appId, excludeFields }) => {
         const resp = await fetch(url, {
           headers: {
             "X-Requested-With": "XMLHttpRequest",
@@ -114,6 +117,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
           const cells = row.cellValuesByColumnId || {};
           for (const colId of Object.keys(cells)) {
             const colName = colMap[colId] || colId;
+            if (excludeFields.includes(colName)) continue;
             let value = cells[colId];
 
             if (typeof value === "string" && selectOptions[value]) {
@@ -143,7 +147,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
 
         return { records, totalRows };
       },
-      { url: capturedUrl, appId }
+      { url: capturedUrl, appId, excludeFields }
     );
 
     if (result.error) {
@@ -163,8 +167,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
       .replace(/[^a-zA-Z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "")
       .toLowerCase();
-    const orgInfo = ORGS_CONFIG[appId];
-    const orgAbbr = orgInfo ? orgInfo.org_abbreviation.toLowerCase() : "org";
+    const orgAbbr = orgInfo.org_abbreviation ? orgInfo.org_abbreviation.toLowerCase() : "org";
     const baseName = `${orgAbbr}-${titleSlug}`;
 
     let finalRecords = records;
@@ -214,7 +217,13 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
       records: finalRecords
     };
     const jsonPath = path.join(OUTPUT_DIR, `${outputName}.json`);
-    fs.writeFileSync(jsonPath, JSON.stringify(outputPath, null, 2));
+    const jsonStr = JSON.stringify(outputPath, null, 2);
+    const compactJson = jsonStr.replace(/\[\s*("(?:[^"\\]|\\.)*"(?:\s*,\s*"(?:[^"\\]|\\.)*")*)\s*\]/g, (match, inner) => {
+      const items = inner.match(/"(?:[^"\\]|\\.)*"/g);
+      if (items) return `[${items.join(", ")}]`;
+      return match;
+    });
+    fs.writeFileSync(jsonPath, compactJson + "\n");
     console.log(`JSON saved to: ${jsonPath}`);
 
     await context.close();

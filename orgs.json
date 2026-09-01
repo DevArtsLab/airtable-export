@@ -1,7 +1,8 @@
 {
   "appGeQemouVNAWX5W": {
     "org_name": "Code The Dream",
-    "org_abbreviation": "CTD"
+    "org_abbreviation": "CTD",
+    "exclude_fields": ["Attachments"]
   },
   "appY2AUgdy9lc9OMv": {
     "org_name": "Code The Dream",

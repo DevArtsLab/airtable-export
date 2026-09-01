@@ -38,8 +38,10 @@ See `CHANGELOG.md` for the full list of features and recent updates.
 - Rich text flattening
 - Merge mode for incremental updates
 - Custom output directory
-- Provenance metadata (\_meta block)
+- Source origin metadata
 - Progress logging
+- Per-source field exclusion via `orgs.json`
+- Collapsed output objects to single lines
 
 ## Git Submodule
 
@@ -53,7 +55,7 @@ node airtable-export/export.js --output ./data "https://airtable.com/appXXX/shrX
 
 ## Output
 
-Files are written to the `objects/` directory (gitignored):
+Files are written to the `objects/` directory:
 
 ```
 objects/
@@ -63,40 +65,20 @@ objects/
 
 Filenames are derived from the Airtable page title (all segments slugged with dashes) prefixed by the org abbreviation from `orgs.json`. The config maps Airtable app IDs to org info. Example: page title `"Airtable - Employer Partners - Apprentice Facing"` with org `CTD` produces `ctd-employer-partners-apprentice-facing.json`.
 
-Each JSON file contains a `_meta` block with provenance info, followed by a `records` array:
-
-```json
-{
-  "_meta": {
-    "sourceUrl": "https://airtable.com/appXXX/shrXXX/tblXXX",
-    "exportedAt": "2026-08-31",
-    "rowCount": 520,
-    "columnCount": 15
-  },
-  "records": [
-    {
-      "_id": "recXXXXX",
-      "_createdTime": "2026-08-28",
-      "Company Name": "Acme Corp",
-      "Status": "Available",
-      "Tech Stack": ["Python", "React", "AWS"]
-    }
-  ]
-}
-```
+Each JSON file contains a `_meta` block with source origin info, followed by a `records` array.
 
 ## Files
 
-| File              | Purpose                                              |
-| ----------------- | ---------------------------------------------------- |
-| `export.js`       | Main script - accepts share URLs as CLI args         |
-| `setup.sh`        | One-command install (npm + playwright)               |
-| `ARCHITECTURE.md` | Pipeline design for orchestrator-based usage         |
-| `skill.md`        | Detailed playbook for agents on how the method works |
-| `CHANGELOG.md`    | Version history and feature updates                  |
-| `package.json`    | Dependency declaration (Playwright)                  |
-| `orgs.json`       | Maps Airtable app IDs to org name/abbreviation       |
-| `objects/`        | Exported JSON files (gitignored)                     |
+| File              | Purpose                                                              |
+| ----------------- | -------------------------------------------------------------------- |
+| `export.js`       | Main script - accepts share URLs as CLI args                         |
+| `setup.sh`        | One-command install (npm + playwright)                               |
+| `ARCHITECTURE.md` | Pipeline design for orchestrator-based usage                         |
+| `skill.md`        | Detailed playbook for agents on how the method works                 |
+| `CHANGELOG.md`    | Version history and feature updates                                  |
+| `package.json`    | Dependency declaration (Playwright)                                  |
+| `orgs.json`       | Maps Airtable app IDs to org name, abbreviation, and excluded fields |
+| `objects/`        | Exported JSON files (git-tracked)                                    |
 
 ## Requirements
 

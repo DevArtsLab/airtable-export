@@ -127,9 +127,12 @@ Each row has:
 
 ### 6. Map cell values to column names
 
-Build lookup maps for column IDs and select field options, then convert each row into a readable object. Preserve native JSON types (arrays, objects) instead of stringifying. Flatten rich text fields (`documentValue`) to plain text strings.
+Build lookup maps for column IDs and select field options, then convert each row into a readable object. Preserve native JSON types (arrays, objects) instead of stringifying. Flatten rich text fields (`documentValue`) to plain text strings. Skip fields listed in `orgs.json` under `exclude_fields` for the matching app ID.
 
 ```javascript
+// orgs.json: { "appXXX": { "exclude_fields": ["Attachments"] } }
+const excludeFields = orgInfo.exclude_fields || [];
+
 // Build column ID -> name map
 const colMap = {};
 for (const col of table.columns) {
@@ -154,6 +157,8 @@ const records = table.rows.map((row) => {
   const record = { _id: row.id, _createdTime: row.createdTime };
   const cells = row.cellValuesByColumnId || {};
   for (const [colId, value] of Object.entries(cells)) {
+    const colName = colMap[colId] || colId;
+    if (excludeFields.includes(colName)) continue;
     let val = value;
 
     // Resolve select field IDs to text
@@ -213,7 +218,14 @@ const output = {
   records: records
 };
 
-fs.writeFileSync(`objects/${baseName}.json`, JSON.stringify(output, null, 2));
+const jsonStr = JSON.stringify(output, null, 2);
+// Collapse string arrays to one line (e.g., ["Full-Time"], ["Technology", "Consulting"])
+const compactJson = jsonStr.replace(/\[\s*("(?:[^"\\]|\\.)*"(?:\s*,\s*"(?:[^"\\]|\\.)*")*)\s*\]/g, (match, inner) => {
+  const items = inner.match(/"(?:[^"\\]|\\.)*"/g);
+  if (items) return `[${items.join(", ")}]`;
+  return match;
+});
+fs.writeFileSync(`objects/${baseName}.json`, compactJson + "\n");
 ```
 
 ## Why This Method Works
