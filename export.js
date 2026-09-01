@@ -130,7 +130,12 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
                 return v;
               });
             } else if (typeof value === "object" && value !== null) {
-              // Keep objects as-is for JSON fidelity
+              // Flatten Airtable rich text fields to plain text
+              if (value.documentValue && Array.isArray(value.documentValue)) {
+                value = value.documentValue
+                  .map((seg) => seg.insert || "")
+                  .join("");
+              }
             }
 
             // Only normalize date strings to date-only format
