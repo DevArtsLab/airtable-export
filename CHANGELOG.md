@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.4.0] - 2026-09-01
+
+- Added `ARCHITECTURE.md` with orchestrator-based pipeline design
+
 ## [1.3.0] - 2026-08-31
 
 - Added `--output <dir>` flag to specify custom output directory
