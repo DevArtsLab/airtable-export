@@ -19,10 +19,37 @@ Output is saved to `output/<table-name>.json`.
 ## Usage
 
 ```bash
-node export.js [--merge] <url1> [url2] [url3] ...
+node export.js [--merge] [--output <dir>] <url1> [url2] ...
 ```
 
+- `--merge` - Append only new records to existing output (by `_id`)
+- `--output <dir>` - Write JSON to a custom directory (default: `./output`)
+
 See `CHANGELOG.md` for the full list of features and recent updates.
+
+## Features
+
+- No API key required
+- All rows at once (no pagination)
+- Retry logic (3 attempts)
+- Multiple URLs in one run
+- Auto-named output files
+- Select field resolution
+- Native type preservation
+- Rich text flattening
+- Merge mode for incremental updates
+- Custom output directory
+- Provenance metadata (\_meta block)
+- Progress logging
+
+## Git Submodule
+
+Use this repo as a submodule in other projects to export Airtable data directly into the parent repo:
+
+```bash
+git submodule add <this-repo-url> airtable-export
+node airtable-export/export.js --output ./data "https://airtable.com/appXXX/shrXXX/tblXXX"
+```
 
 ## Output
 

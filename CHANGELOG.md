@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.0] - 2026-08-31
+
+- Added `--output <dir>` flag to specify custom output directory
+- Added `pageTitle` to `_meta` block
+- Flattened Airtable rich text fields (documentValue) to plain text strings
+- Removed row count from output filenames (stable names across re-exports)
+- Added `.prettierrc` to prevent formatting diffs on committed output files
+- Added git submodule usage instructions to README
+
 ## [1.2.0] - 2026-08-31
 
 - Added `--merge` flag to append only new records to existing output (by `_id` comparison)

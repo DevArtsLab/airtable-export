@@ -4,20 +4,16 @@ const path = require("path");
 
 const args = process.argv.slice(2);
 const MERGE_MODE = args.includes("--merge");
-const SHARE_URLS = args.filter((a) => !a.startsWith("--"));
-const OUTPUT_DIR = path.join(__dirname, "output");
+const OUTPUT_FLAG_IDX = args.indexOf("--output");
+const OUTPUT_DIR = OUTPUT_FLAG_IDX !== -1 && args[OUTPUT_FLAG_IDX + 1] ? path.resolve(args[OUTPUT_FLAG_IDX + 1]) : path.join(__dirname, "output");
+const SHARE_URLS = args.filter((a) => !a.startsWith("--") && a !== (OUTPUT_FLAG_IDX !== -1 ? args[OUTPUT_FLAG_IDX + 1] : ""));
 const MAX_RETRIES = 3;
 
 if (SHARE_URLS.length === 0) {
-  console.error(
-    "Usage: node export.js [--merge] <airtable-share-url> [url2] [url3] ...",
-  );
-  console.error(
-    "Example: node export.js https://airtable.com/appXXX/shrXXX/tblXXX",
-  );
-  console.error(
-    "  --merge  Append new records to existing output file (by _id)",
-  );
+  console.error("Usage: node export.js [--merge] [--output <dir>] <url1> [url2] ...");
+  console.error("Example: node export.js https://airtable.com/appXXX/shrXXX/tblXXX");
+  console.error("  --merge   Append new records to existing output file (by _id)");
+  console.error("  --output  Specify output directory (default: ./output)");
   process.exit(1);
 }
 
@@ -36,10 +32,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
   let capturedUrl = null;
   page.on("request", (request) => {
     const url = request.url();
-    if (
-      url.includes("readSharedViewData") &&
-      !url.includes("allowMsgpackOfResult")
-    ) {
+    if (url.includes("readSharedViewData") && !url.includes("allowMsgpackOfResult")) {
       capturedUrl = url;
     }
   });
@@ -48,7 +41,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
     console.log(`[${attempt}/${MAX_RETRIES}] Navigating to ${shareUrl}...`);
     await page.goto(shareUrl, {
       waitUntil: "domcontentloaded",
-      timeout: 60000,
+      timeout: 60000
     });
     await page.waitForTimeout(5000);
 
@@ -58,9 +51,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
 
     console.log("Captured API URL with access policy");
 
-    const appIdMatch = capturedUrl.match(
-      /applicationId%22%3A%22(app[A-Za-z0-9]+)/,
-    );
+    const appIdMatch = capturedUrl.match(/applicationId%22%3A%22(app[A-Za-z0-9]+)/);
     const appId = appIdMatch ? appIdMatch[1] : "";
 
     console.log("Fetching data via internal API...");
@@ -73,9 +64,9 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
             "x-airtable-accept-msgpack": "true",
             "x-user-locale": "en",
             "x-airtable-inter-service-client": "webClient",
-            "x-time-zone": "America/New_York",
+            "x-time-zone": "America/New_York"
           },
-          credentials: "include",
+          credentials: "include"
         });
 
         if (!resp.ok) {
@@ -124,25 +115,19 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
               value = selectOptions[value];
             } else if (Array.isArray(value)) {
               value = value.map((v) => {
-                if (typeof v === "string" && selectOptions[v])
-                  return selectOptions[v];
+                if (typeof v === "string" && selectOptions[v]) return selectOptions[v];
                 if (typeof v === "object" && v !== null) return v;
                 return v;
               });
             } else if (typeof value === "object" && value !== null) {
               // Flatten Airtable rich text fields to plain text
               if (value.documentValue && Array.isArray(value.documentValue)) {
-                value = value.documentValue
-                  .map((seg) => seg.insert || "")
-                  .join("");
+                value = value.documentValue.map((seg) => seg.insert || "").join("");
               }
             }
 
             // Only normalize date strings to date-only format
-            if (
-              typeof value === "string" &&
-              value.match(/^\d{4}-\d{2}-\d{2}T/)
-            ) {
+            if (typeof value === "string" && value.match(/^\d{4}-\d{2}-\d{2}T/)) {
               value = value.split("T")[0];
             }
 
@@ -153,7 +138,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
 
         return { records, totalRows };
       },
-      { url: capturedUrl, appId },
+      { url: capturedUrl, appId }
     );
 
     if (result.error) {
@@ -162,9 +147,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
 
     const { records, totalRows } = result;
     console.log(`Parsed ${totalRows} rows...`);
-    console.log(
-      `Extracted ${records.length} records with ${Object.keys(records[0]).length} columns`,
-    );
+    console.log(`Extracted ${records.length} records with ${Object.keys(records[0]).length} columns`);
 
     // Derive output filename from page title
     const pageTitle = await page.title();
@@ -179,9 +162,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
 
     if (MERGE_MODE) {
       // Find existing file matching this table (by sourceUrl in _meta)
-      const existingFiles = fs
-        .readdirSync(OUTPUT_DIR)
-        .filter((f) => f.endsWith(".json"));
+      const existingFiles = fs.readdirSync(OUTPUT_DIR).filter((f) => f.endsWith(".json"));
 
       let existingPath = null;
       let existingData = null;
@@ -200,9 +181,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
         const newRecords = records.filter((r) => !existingIds.has(r._id));
         finalRecords = [...existingData.records, ...newRecords];
         newCount = newRecords.length;
-        console.log(
-          `Merge: ${existingData.records.length} existing + ${newCount} new = ${finalRecords.length} total`,
-        );
+        console.log(`Merge: ${existingData.records.length} existing + ${newCount} new = ${finalRecords.length} total`);
         if (existingPath) {
           fs.unlinkSync(existingPath);
         }
@@ -218,11 +197,11 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
       _meta: {
         sourceUrl: shareUrl,
         pageTitle: pageTitle,
-        exportedAt: new Date().toISOString().split("T")[0],
+        exportedAt: new Date().getFullYear() + "-" + String(new Date().getMonth() + 1).padStart(2, "0") + "-" + String(new Date().getDate()).padStart(2, "0"),
         rowCount: finalRecords.length,
-        columnCount: Object.keys(finalRecords[0]).length,
+        columnCount: Object.keys(finalRecords[0]).length
       },
-      records: finalRecords,
+      records: finalRecords
     };
     const jsonPath = path.join(OUTPUT_DIR, `${outputName}.json`);
     fs.writeFileSync(jsonPath, JSON.stringify(outputPath, null, 2));
@@ -233,7 +212,7 @@ async function exportOneTable(browser, shareUrl, attempt = 1) {
       success: true,
       url: shareUrl,
       count: finalRecords.length,
-      newCount,
+      newCount
     };
   } catch (err) {
     await context.close();
