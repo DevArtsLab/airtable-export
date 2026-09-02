@@ -69,16 +69,15 @@ Each JSON file contains a `_meta` block with source origin info, followed by a `
 
 ## Files
 
-| File              | Purpose                                                              |
-| ----------------- | -------------------------------------------------------------------- |
-| `export.js`       | Main script - accepts share URLs as CLI args                         |
-| `setup.sh`        | One-command install (npm + playwright)                               |
-| `ARCHITECTURE.md` | Pipeline design for orchestrator-based usage                         |
-| `skill.md`        | Detailed playbook for agents on how the method works                 |
-| `CHANGELOG.md`    | Version history and feature updates                                  |
-| `package.json`    | Dependency declaration (Playwright)                                  |
-| `orgs.json`       | Maps Airtable app IDs to org name, abbreviation, and excluded fields |
-| `objects/`        | Exported JSON files (git-tracked)                                    |
+| File           | Purpose                                                              |
+| -------------- | -------------------------------------------------------------------- |
+| `export.js`    | Main script - accepts share URLs as CLI args                         |
+| `setup.sh`     | One-command install (npm + playwright)                               |
+| `skill.md`     | Detailed playbook for agents on how the method works                 |
+| `CHANGELOG.md` | Version history and feature updates                                  |
+| `package.json` | Dependency declaration (Playwright)                                  |
+| `orgs.json`    | Maps Airtable app IDs to org name, abbreviation, and excluded fields |
+| `objects/`     | Exported JSON files (git-tracked)                                    |
 
 ## Requirements
 

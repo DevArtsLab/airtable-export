@@ -266,5 +266,3 @@ Usage:
 ./setup.sh
 node export.js [--merge] [--output <dir>] "https://airtable.com/appXXX/shrXXX/tblXXX"
 ```
-
-See `ARCHITECTURE.md` for orchestrator-based pipeline design using this tool as a submodule.

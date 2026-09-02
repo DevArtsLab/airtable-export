@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.6.0] - 2026-09-02
+
+- Removed parent `ARCHITECTURE.md` pipeline design to keep the repo focused on its own export capability
+
 ## [1.5.0] - 2026-09-01
 
 - Renamed default output directory from `output/` to `objects/`

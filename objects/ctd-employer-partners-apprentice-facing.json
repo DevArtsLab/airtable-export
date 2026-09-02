@@ -2,8 +2,8 @@
   "_meta": {
     "sourceUrl": "https://airtable.com/appGeQemouVNAWX5W/shr7WKb521dLfZTWO/tblZczCm470MGzRIK",
     "pageTitle": "Airtable - Employer Partners - Apprentice Facing",
-    "exportedAt": "2026-09-01",
-    "rowCount": 25,
+    "exportedAt": "2026-09-02",
+    "rowCount": 26,
     "columnCount": 8
   },
   "records": [
@@ -263,6 +263,16 @@
       "Special Application/Referral Instructions": "BEFORE applying to jobs of interest:\nComplete your candidate registration (webpage will be titled, Join Our Talent Network)\nBe certain to select \"Code the Dream\" for the question, \"Which training provider program did you complete?\"\nAfter completion of your candidate registration, you can check out/apply for open jobs of interest. \nA jobs lead report will be shared via the ctd-job-seekers Slack channel bi-weekly\n\nNO REFERRAL PROCESS\n",
       "Industry ID": ["Non-profit", "Other"],
       "Additional Intel": "Opportunities listed as \"Contract\" have great potential to convert to full-time/permanent.\n"
+    },
+    {
+      "_id": "recfjVq0Z2E8nd0Xf",
+      "_createdTime": "2026-09-02T18:20:03.000Z",
+      "Company": "Smartsheet (a Blackstone Portfolio Company)",
+      "Job Board page": "https://www.smartsheet.com/careers ",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Bellevue, WA\nSeveral opportunities are remote eligible\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Technology"]
     }
   ]
 }
