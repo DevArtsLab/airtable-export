@@ -1,6 +1,6 @@
 # Airtable Public View Exporter
 
-Extract all rows from any Airtable public shared view as JSON - no API key needed.
+Extract all rows from any Airtable public shared view as .json files - no API key needed.
 
 ## How It Works
 
@@ -9,11 +9,28 @@ The script uses Playwright to load the Airtable share page in a headless browser
 ## Quick Start
 
 ```bash
-./setup.sh
-node export.js "https://airtable.com/appXXX/shrXXX/tblXXX"
+git clone https://github.com/DevArtsLab/airtable-export.git && \
+cd airtable-export && \
+./setup.sh && node export.js "https://airtable.com/appXXX/shrXXX/tblXXX"
+```
+
+```bash
+git clone https://github.com/DevArtsLab/airtable-export.git && \
+cd airtable-export && \
+./setup.sh && node export.js \
+"https://airtable.com/appY2AUgdy9lc9OMv/shrlWl6r0hH2Chwg4/tblujOarxTX3dVl77" \
+"https://airtable.com/appGeQemouVNAWX5W/shr7WKb521dLfZTWO/tblZczCm470MGzRIK"
 ```
 
 Output is saved to `objects/<org-abbr>-<full-title>.json`.
+
+Example with real URLs:
+
+```bash
+node export.js \
+"https://airtable.com/appY2AUgdy9lc9OMv/shrlWl6r0hH2Chwg4/tblujOarxTX3dVl77" \
+"https://airtable.com/appGeQemouVNAWX5W/shr7WKb521dLfZTWO/tblZczCm470MGzRIK"
+```
 
 ## Usage
 
@@ -48,8 +65,8 @@ See `CHANGELOG.md` for the full list of features and recent updates.
 Use this repo as a submodule in other projects to export Airtable data directly into the parent repo:
 
 ```bash
-git submodule add <this-repo-url> airtable-export
-cd airtable-export && ./setup.sh && cd ..
+git submodule add <this-repo-url> airtable-export && \
+cd airtable-export && ./setup.sh && cd .. && \
 node airtable-export/export.js --output ./data "https://airtable.com/appXXX/shrXXX/tblXXX"
 ```
 
