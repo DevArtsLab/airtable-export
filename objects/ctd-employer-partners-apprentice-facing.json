@@ -2,8 +2,8 @@
   "_meta": {
     "sourceUrl": "https://airtable.com/appGeQemouVNAWX5W/shr7WKb521dLfZTWO/tblZczCm470MGzRIK",
     "pageTitle": "Airtable - Employer Partners - Apprentice Facing",
-    "exportedAt": "2026-09-02",
-    "rowCount": 26,
+    "exportedAt": "2026-09-28",
+    "rowCount": 25,
     "columnCount": 8
   },
   "records": [
@@ -24,7 +24,7 @@
       "Job Board page": "https://careers.alight.com/us/en",
       "Job Opportunity Types": ["Full-Time"],
       "Headquarter Location": "Lincolnshire, IL\n",
-      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\n3-4 sentences regarding why you'd be a good fit for the company/role\nFrom there, she will follow notify our point-of-contact.\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will notify our contact if deemed applicable.\n",
       "Industry ID": ["Other"]
     },
     {
@@ -57,17 +57,6 @@
       "Headquarter Location": "Burlington, MA\n",
       "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
       "Industry ID": ["Technology", "Education"]
-    },
-    {
-      "_id": "rec246IlQjCUoaKIJ",
-      "_createdTime": "2025-03-28T16:16:40.000Z",
-      "Company": "Atlassian",
-      "Job Board page": "https://www.atlassian.com/company/careers",
-      "Job Opportunity Types": ["Full-Time"],
-      "Headquarter Location": "Sydney, Australia\nOpportunities are US/nationwide, also\n",
-      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nResume\nA few sentences explaining what specific skills or experiences would make you successful in this particular role - the more concrete, the better\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
-      "Industry ID": ["Technology"],
-      "Additional Intel": "Teams operate remotely\n"
     },
     {
       "_id": "recltH23yKgH5kkjS",
@@ -168,7 +157,7 @@
       "Job Board page": "https://careers.mastercard.com/us/en",
       "Job Opportunity Types": ["Full-Time"],
       "Headquarter Location": "Purchase, NY\nOpportunities are nationwide\n",
-      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s)/Job IDs\nEmail address\nResume\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Special Application/Referral Instructions": "BEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s)/Job IDs\nEmail address\nResume\nFrom there, she will follow notify our contact.\n",
       "Industry ID": ["Financial Services"],
       "Additional Intel": "By signing up for Mastercard’s Talent Community, candidates can drop their resume and receive updates on specific job openings as they become available.\n"
     },
@@ -229,9 +218,19 @@
       "Job Board page": "https://internships.shopify.com/ ",
       "Job Opportunity Types": ["Full-Time"],
       "Headquarter Location": "Bellevue, WA and NYC, NY during the 4-month internship. \nThen remote if converted to full-time.\n",
-      "Special Application/Referral Instructions": "*FOR SHOPIFY'S INTERNSHIP ONLY*\n\nBEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nEmail address\nResume\nA few sentences answering the following question: \"What makes you a great fit for Shopify and the specific position you are seeking a referral for?\"\n\nFrom there, she will follow notify our point-of-contact if deemed applicable. \n",
+      "Special Application/Referral Instructions": "*FOR SHOPIFY'S INTERNSHIP ONLY*\n\nBEFORE you apply, send Rosalyn a Slack message with the\nCompany name\nJob link (s) of interest\nEmail address\nResume\nA few sentences answering the following question: \"What makes you a great fit for Shopify and the specific position you are seeking a referral for?\"\n\nFrom there, she will follow notify our point-of-contact if deemed applicable and provide next steps accordingly. \n",
       "Industry ID": ["Technology"],
-      "Additional Intel": "Shopify's Technical Interview Process: What to Expect and How to Prepare\n"
+      "Additional Intel": "Referrals are for Shopify's internship program only.\nFor full-time roles, they are looking for candidates with 5+ years of experience.\n\nInterview Prep:\nShopify's Technical Interview Process: What to Expect and How to Prepare\n\n"
+    },
+    {
+      "_id": "recfjVq0Z2E8nd0Xf",
+      "_createdTime": "2026-09-02T18:20:03.000Z",
+      "Company": "Smartsheet (a Blackstone Portfolio Company)",
+      "Job Board page": "https://www.smartsheet.com/careers ",
+      "Job Opportunity Types": ["Full-Time"],
+      "Headquarter Location": "Bellevue, WA\nSeveral opportunities are remote eligible\n",
+      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
+      "Industry ID": ["Technology"]
     },
     {
       "_id": "recqcmULYxvoEa2VO",
@@ -263,16 +262,6 @@
       "Special Application/Referral Instructions": "BEFORE applying to jobs of interest:\nComplete your candidate registration (webpage will be titled, Join Our Talent Network)\nBe certain to select \"Code the Dream\" for the question, \"Which training provider program did you complete?\"\nAfter completion of your candidate registration, you can check out/apply for open jobs of interest. \nA jobs lead report will be shared via the ctd-job-seekers Slack channel bi-weekly\n\nNO REFERRAL PROCESS\n",
       "Industry ID": ["Non-profit", "Other"],
       "Additional Intel": "Opportunities listed as \"Contract\" have great potential to convert to full-time/permanent.\n"
-    },
-    {
-      "_id": "recfjVq0Z2E8nd0Xf",
-      "_createdTime": "2026-09-02T18:20:03.000Z",
-      "Company": "Smartsheet (a Blackstone Portfolio Company)",
-      "Job Board page": "https://www.smartsheet.com/careers ",
-      "Job Opportunity Types": ["Full-Time"],
-      "Headquarter Location": "Bellevue, WA\nSeveral opportunities are remote eligible\n",
-      "Special Application/Referral Instructions": "AFTER you apply, send Rosalyn a Slack message with the \nCompany name\nJob title(s)\nJob link (s)\nDate you applied\nResume\nFrom there, she will follow notify our point-of-contact.\n",
-      "Industry ID": ["Technology"]
     }
   ]
 }
